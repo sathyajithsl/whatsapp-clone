@@ -46,10 +46,10 @@ export function ChatsProvider({ id, children }) {
     useEffect(() => {
         if (socket == null) return
     
-        socket.on('receive-message', addMessageToConversation)
+        socket.on('receive-message', addMessageToChat)
     
         return () => socket.off('receive-message')
-      }, [socket, addMessageToConversation])
+      }, [socket, addMessageToChat])
 
     function sendMessage(recipients, text){
         socket.emit('send-message',{recipients, text});
