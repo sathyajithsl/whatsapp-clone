@@ -19,7 +19,7 @@ export function ChatsProvider({ id, children }) {
                 return [...prevChats, { recipients, messages: [] }]
             })
     }
-    //const addMessageToConversation = useCallback(({ recipients, text, sender }) => {
+    
     const addMessageToChat = useCallback(({recipients, text, sender}) => {
         setChats(prevChats => {
             let madeChange = false;
@@ -76,7 +76,7 @@ export function ChatsProvider({ id, children }) {
         })
 
         const selected = index === selectedChatIndex
-        console.log("selected:",selected);
+        console.log({ ...chats, messages, recipients, selected });
         return { ...chats, messages, recipients, selected }
     })
 
